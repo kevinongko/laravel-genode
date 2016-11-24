@@ -1,0 +1,25 @@
+{
+    "name": "kevin/laravel-genode",
+    "description": "Opinionated modular structure for Laravel",
+    "keywords": ["laravel", "modules", "modular", "module", "pattern", "generator", "generate", "genode"],
+    "type": "library",
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.3.*",
+        "wikimedia/composer-merge-plugin": "^1.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Ongko",
+            "email": "kevin.ongko@gmail.com",
+            "homepage": "https://kevinongko.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "KevinOngko\\LaravelGenode\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

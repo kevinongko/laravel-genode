@@ -1,0 +1,131 @@
+<?php
+
+namespace Modules\{{namespace}}\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+
+class {{class}} extends ServiceProvider
+{
+    /**
+     * The root namespace to assume when generating URLs to actions.
+     *
+     * @var string
+     */
+    protected $namespace = 'Modules\{{namespace}}\Http\Controllers';
+
+    /**
+     * Boot the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->mapApiRoutes();
+        $this->mapWebRoutes();
+        $this->registerMigrations();
+        $this->registerTranslations();
+        $this->registerViews();
+    }
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require __DIR__ . '/../../routes/web.php';
+        });
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::group([
+            'middleware' => ['api', 'auth:api'],
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require __DIR__ . '/../../routes/api.php';
+        });
+    }
+
+    /**
+     * Register views.
+     *
+     * @return void
+     */
+    protected function registerViews()
+    {
+        $viewPath = resource_path('views/modules/{{module}}');
+
+        $sourcePath = __DIR__.'/../../resources/views';
+
+        $this->publishes([ $sourcePath => $viewPath ]);
+
+        $viewSources = collect(config('view.paths'))
+            ->map(function ($path) { return $path.'/modules/{{module}}'; })
+            ->merge(collect([$sourcePath]))
+            ->toArray();
+
+        $this->loadViewsFrom($viewSources, '{{module}}');
+    }
+
+    /**
+     * Register migrations.
+     *
+     * @return void
+     */
+    protected function registerMigrations()
+    {
+        $migrationPath = base_path('database/migrations');
+
+        $sourcePath = __DIR__.'/../../database/migrations';
+
+        $this->publishes([ $sourcePath => $migrationPath ]);
+
+        $this->loadMigrationsFrom($sourcePath);
+    }
+
+    /**
+     * Register translations.
+     *
+     * @return void
+     */
+    protected function registerTranslations()
+    {
+        $langPath = resource_path('lang/modules/{{module}}');
+
+		$sourcePath = __DIR__.'/../../resources/lang';
+
+		$this->publishes([ $sourcePath => $langPath, ]);
+
+        if (is_dir($langPath)) {
+            $this->loadTranslationsFrom($langPath, '{{module}}');
+        } else {
+            $this->loadTranslationsFrom($sourcePath, '{{module}}');
+        }
+    }
+}

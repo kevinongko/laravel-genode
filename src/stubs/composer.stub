@@ -1,0 +1,16 @@
+{
+    "name": "{{vendor}}/{{module}}",
+    "description": "",
+    "authors": [
+        {
+            "name": "{{author}}",
+            "email": "{{email}}"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\{{namespace}}\\": "src/"
+        }
+    },
+    "require": {}
+}
