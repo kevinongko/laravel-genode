@@ -31,7 +31,7 @@ $ php artisan vendor:publish --provider="KevinOngko\LaravelGenode\LaravelGenodeS
 ```
 
 ### Autoload Modules
-Laravel Genode is using [wikimedia/composer-merge-plugin](https://github.com/wikimedia/composer-merge-plugin) to autoload modules, add this your project's composer.json
+Laravel Genode is using [wikimedia/composer-merge-plugin](https://github.com/wikimedia/composer-merge-plugin) to autoload modules, add this to your project's `composer.json`
 ```json
 "extra": {
   "merge-plugin": {
