@@ -16,7 +16,7 @@ Install through composer by running this command:
 $ composer require kevinongko/laravel-genode
 ```
 ### Service provider
-Add the following code to service providers in config/app.php
+Add the following code to service providers in `config/app.php`
 ```php
 'providers' => [
 
@@ -41,3 +41,22 @@ Laravel Genode is using [wikimedia/composer-merge-plugin](https://github.com/wik
   }
 }
 ```
+
+## Usage
+Create new module:
+```sh
+$ php artisan module:new
+```
+
+Enable modules in `config/module.php`
+```php
+  'active' => [
+     'Module1',
+     'Module2
+  ],
+```
+
+
+## License
+
+Laravel Genode is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
