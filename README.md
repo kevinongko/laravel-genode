@@ -15,7 +15,7 @@ Install through composer by running this command:
 ```sh
 $ composer require kevinongko/laravel-genode
 ```
-### Service provider
+### Service Provider
 Add the following code to service providers in `config/app.php`
 ```php
 'providers' => [
