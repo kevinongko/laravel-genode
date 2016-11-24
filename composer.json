@@ -1,5 +1,5 @@
 {
-    "name": "kevin/laravel-genode",
+    "name": "kevinongko/laravel-genode",
     "description": "Opinionated modular structure for Laravel",
     "keywords": ["laravel", "modules", "modular", "module", "pattern", "generator", "generate", "genode"],
     "type": "library",
