@@ -15,8 +15,8 @@ class LaravelGenodeServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerConfig();
-		$this->registerCommands();
-		$this->registerModules();
+        $this->registerCommands();
+        $this->registerModules();
     }
 
     /**
@@ -32,7 +32,7 @@ class LaravelGenodeServiceProvider extends ServiceProvider
     /**
      * Register LaravelGenode modules.
      */
-	protected function registerModules()
+    protected function registerModules()
     {
         $modules = collect(config('module.active'));
 
@@ -48,17 +48,17 @@ class LaravelGenodeServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                MakeModule::class
+                MakeModule::class,
             ]);
         }
-	}
+    }
 
     /**
      * Register LaravelGenode config.
      */
     protected function registerConfig()
     {
-        $configPath = __DIR__ .'/../config/module.php';
+        $configPath = __DIR__.'/../config/module.php';
         $this->mergeConfigFrom($configPath, 'module');
         $this->publishes([
             $configPath => config_path('module.php'),

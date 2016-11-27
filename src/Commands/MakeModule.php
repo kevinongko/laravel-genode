@@ -64,7 +64,7 @@ class MakeModule extends Command
 
         $this->moduleDirectory = base_path('modules/'.$this->moduleName);
 
-        if($this->file->exists($this->moduleDirectory)) {
+        if ($this->file->exists($this->moduleDirectory)) {
             return $this->error($this->moduleName.' module already exists!');
         }
 
@@ -125,7 +125,7 @@ class MakeModule extends Command
     {
         $stub = $this->file->get(__DIR__.'/../../stubs/provider.stub');
 
-        $this ->replaceProviderClass($stub)
+        $this->replaceProviderClass($stub)
             ->replaceNamespace($stub)
             ->replaceModuleName($stub);
 

@@ -25,7 +25,7 @@ return [
         'vendor' => 'author',
         'author' => [
             'name' => 'Author',
-            'email' => 'author@email.com'
-        ]
-    ]
+            'email' => 'author@email.com',
+        ],
+    ],
 ];
