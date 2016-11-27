@@ -4,6 +4,7 @@
 [![Latest Stable Version](https://poser.pugx.org/kevinongko/laravel-genode/v/stable)](https://packagist.org/packages/kevinongko/laravel-genode)
 [![Latest Unstable Version](https://poser.pugx.org/kevinongko/laravel-genode/v/unstable)](https://packagist.org/packages/kevinongko/laravel-genode)
 [![Build Status](https://travis-ci.org/kevinongko/laravel-genode.svg?branch=master)](https://travis-ci.org/kevinongko/laravel-genode)
+[![StyleCI](https://styleci.io/repos/74632774/shield?branch=master)](https://styleci.io/repos/74632774)
 [![License](https://poser.pugx.org/kevinongko/laravel-genode/license)](https://github.com/kevinongko/laravel-genode/blob/master/LICENSE)
 
 
