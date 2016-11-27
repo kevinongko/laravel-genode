@@ -61,10 +61,11 @@ class MakeModule extends Command
     public function handle()
     {
         $this->moduleName = studly_case($this->ask('What is the module name?'));
+
         $this->moduleDirectory = base_path('modules/'.$this->moduleName);
 
         if($this->file->exists($this->moduleDirectory)) {
-			return $this->error($this->moduleName.' module already exists!');
+            return $this->error($this->moduleName.' module already exists!');
         }
 
         $this->generateDirectories();
@@ -79,7 +80,7 @@ class MakeModule extends Command
     /**
      * Build the directory for the class.
      */
-    protected function generateDirectories()
+    public function generateDirectories()
     {
         $this->file->makeDirectory($this->moduleDirectory.'/database/migrations', 0775, true);
         $this->file->makeDirectory($this->moduleDirectory.'/resources/lang/en', 0775, true);
@@ -106,12 +107,12 @@ class MakeModule extends Command
 
         $this->file->put(
             $this->moduleDirectory.'/routes/api.php',
-            $this->file->get(__DIR__.'/../stubs/route-api.stub')
+            $this->file->get(__DIR__.'/../../stubs/route-api.stub')
         );
 
         $this->file->put(
             $this->moduleDirectory.'/routes/web.php',
-            $this->file->get(__DIR__.'/../stubs/route-web.stub')
+            $this->file->get(__DIR__.'/../../stubs/route-web.stub')
         );
     }
 
@@ -122,7 +123,7 @@ class MakeModule extends Command
      */
     protected function compileProviderStub()
     {
-        $stub = $this->file->get(__DIR__.'/../stubs/provider.stub');
+        $stub = $this->file->get(__DIR__.'/../../stubs/provider.stub');
 
         $this ->replaceProviderClass($stub)
             ->replaceNamespace($stub)
@@ -138,7 +139,7 @@ class MakeModule extends Command
      */
     protected function compileComposerStub()
     {
-        $stub = $this->file->get(__DIR__.'/../stubs/composer.stub');
+        $stub = $this->file->get(__DIR__.'/../../stubs/composer.stub');
 
         $this->replaceVendorName($stub)
             ->replaceAuthorName($stub)
