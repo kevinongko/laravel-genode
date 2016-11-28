@@ -4,6 +4,7 @@ namespace KevinOngko\LaravelGenode;
 
 use Illuminate\Support\ServiceProvider;
 use KevinOngko\LaravelGenode\Commands\MakeModule;
+use KevinOngko\LaravelGenode\Commands\MakeModel;
 
 class LaravelGenodeServiceProvider extends ServiceProvider
 {
@@ -49,6 +50,7 @@ class LaravelGenodeServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 MakeModule::class,
+                MakeModel::class
             ]);
         }
     }

@@ -1,0 +1,36 @@
+<?php
+
+namespace Modules\{{namespace}}\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class {{class}} extends Model
+{
+    use SoftDeletes;
+
+    /**
+     * Softdelete field
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
+    /**
+     * Hidden attributes from response.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        //
+    ];
+
+    /**
+     * Fillable field.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        //
+    ];
+}
